@@ -1,0 +1,84 @@
+{
+  "personal": {
+    "name": "Stephano Renan Valdivia Quispe",
+    "shortName": "Stephano Valdivia",
+    "role": "Software Engineer & Creative Technologist",
+    "tagline": "Arquitectura de software moderna, microservicios y experiencias interactivas impulsadas por arte y sonido.",
+    "location": "Lima, Perú",
+    "email": "stephrvq@gmail.com",
+    "phone": "+51 923 399 455",
+    "linkedin": "https://linkedin.com/in/stephanovaldivia",
+    "github": "https://github.com/stephanovaldivia",
+    "statement": "Estudiante de Ingeniería de Software con sólida formación en desarrollo web, diseño de experiencia de usuario, arquitectura de software y metodologías ágiles. Experiencia construyendo aplicaciones web completas, diseñando interfaces centradas en el usuario y aplicando buenas prácticas de ingeniería y arquitectura moderna.",
+    "artisticPhilosophy": "El software no es solo lógica estructurada; es una composición sensorial viva. Así como el noise rock, el post-punk y el digicore transforman la disonancia en energía visceral, la arquitectura de sistemas convierte la complejidad de flujos distribuidos en armonía técnica."
+  },
+  "education": {
+    "institution": "Universidad Peruana de Ciencias Aplicadas (UPC)",
+    "campus": "Campus Monterrico",
+    "degree": "Ingeniería de Software",
+    "cycle": "Octavo ciclo",
+    "period": "Marzo 2023 – Actualidad",
+    "location": "Lima, Perú"
+  },
+  "skillCategories": [
+    {
+      "category": "Desarrollo Web & Frontend",
+      "icon": "Code",
+      "color": "from-fuchsia-500 to-pink-500",
+      "skills": ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React", "Vue.js", "Angular", "Responsive Design", "TailwindCSS"]
+    },
+    {
+      "category": "Backend & APIs",
+      "icon": "Server",
+      "color": "from-violet-500 to-indigo-500",
+      "skills": ["Spring Boot 3", "Java", "C# .NET 8", "ASP.NET Core", "Python (Pandas, NetworkX)", "RESTful APIs", "SignalR (WebSockets)", "Hangfire"]
+    },
+    {
+      "category": "Bases de Datos & Caché",
+      "icon": "Database",
+      "color": "from-cyan-500 to-blue-500",
+      "skills": ["SQL Avanzado", "Modelado Relacional (hasta 5FN)", "PostgreSQL", "Triggers & Stored Procedures", "MongoDB (NoSQL)", "Redis (Caché distribuido)", "Spring JPA", "Entity Framework Core"]
+    },
+    {
+      "category": "Arquitectura & DevOps",
+      "icon": "Cpu",
+      "color": "from-emerald-500 to-teal-500",
+      "skills": ["Microservicios", "Event Sourcing", "Patrón Sagas", "RabbitMQ (Message Broker)", "Modelos C4", "Docker & Docker Compose", "CI/CD con GitHub Actions"]
+    },
+    {
+      "category": "Metodologías & Liderazgo",
+      "icon": "GitBranch",
+      "color": "from-amber-500 to-orange-500",
+      "skills": ["Scrum", "Kanban", "XP (Extreme Programming)", "Lean Software", "Escalado (SAFe, LeSS, Scrum@Scale, DA)"]
+    },
+    {
+      "category": "UI/UX & Habilidades Blandas",
+      "icon": "Palette",
+      "color": "from-rose-500 to-red-500",
+      "skills": ["Flow Diagrams", "Design Systems & Style Guides", "Heurísticas de Usabilidad", "Trabajo en equipo", "Resolución de problemas", "Aprendizaje ágil", "Inglés Avanzado"]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Negotiation, Mediation and Conflict Resolution",
+      "issuer": "Coursera / Certificación Internacional",
+      "badge": "Liderazgo & Resolución"
+    },
+    {
+      "title": "Design and Project Management",
+      "issuer": "Certificación Especializada",
+      "badge": "Gestión & Arquitectura UI"
+    }
+  ],
+  "musicalInfluences": [
+    { "name": "JPEGMAFIA", "genre": "Experimental Hip Hop / Glitch", "vibe": "Raw, aggressive sampling & texture" },
+    { "name": "Genesis Owusu", "genre": "Avant-Funk / Post-Punk", "vibe": "Dynamic rhythm & theatrics" },
+    { "name": "Jane Remover", "genre": "Digicore / Shoegaze", "vibe": "Distorted walls of sound & melody" },
+    { "name": "Geordie Greep", "genre": "Avant-Prog / Math Rock", "vibe": "Complex syncopation & virtuosity" },
+    { "name": "Nujabes", "genre": "Lo-Fi Jazz Hip Hop", "vibe": "Soulful warmth & harmonic balance" },
+    { "name": "Xiu Xiu", "genre": "Noise Pop / Experimental", "vibe": "Visceral vulnerability & tension" },
+    { "name": "Viagra Boys", "genre": "Post-Punk / Dance Punk", "vibe": "Driving basslines & sarcastic punch" },
+    { "name": "Model/Actriz", "genre": "Dance-Punk / Noise Rock", "vibe": "Industrial pulse & catharsis" },
+    { "name": "Maruja", "genre": "Jazz Punk / Spoken Word", "vibe": "Fierce brass & emotional crescendo" }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "stephano-portfolio-monorepo",
+  "version": "1.0.0",
+  "description": "Portafolio inmersivo & CV de Stephano Renan Valdivia Quispe con integración GitHub API, React y Spring Boot",
+  "scripts": {
+    "dev": "npm run dev:frontend",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "cd backend && .\\mvnw.cmd spring-boot:run",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:backend": "cd backend && .\\mvnw.cmd package -DskipTests",
+    "build": "npm run build:frontend && npm run build:backend"
+  },
+  "author": "Stephano Renan Valdivia Quispe",
+  "license": "MIT"
+}
