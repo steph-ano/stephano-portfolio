@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@500;700;800;900&display=swap');
 @import "tailwindcss";
 
 :root {
   --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-brush: 'Permanent Marker', cursive, sans-serif;
   
   --bg-obsidian: #08090d;
   --bg-surface: #10121a;
@@ -18,8 +19,6 @@ body {
   color: #f1f5f9;
   font-family: var(--font-body);
   overflow-x: hidden;
-  selection-background-color: #f43f5e;
-  selection-color: #ffffff;
 }
 
 ::selection {
@@ -42,19 +41,69 @@ body {
   background: #e024c3;
 }
 
+/* Drafting Grid inspired by Reference 1 */
+.drafting-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.drafting-grid-light {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+}
+
+/* Distressed Brush Typography */
+.font-brush {
+  font-family: var(--font-brush);
+}
+
+/* Ghost typography layer effect like in reference1 */
+.ghost-stack-text {
+  position: relative;
+  display: inline-block;
+}
+
+.ghost-stack-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-8px) scaleY(1.05);
+  color: rgba(255, 255, 255, 0.08);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ghost-stack-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-16px) scaleY(1.1);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* Glassmorphism & Aurora Utilities */
 .glass-panel {
-  background: rgba(16, 18, 26, 0.65);
+  background: rgba(16, 18, 26, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .glass-panel-glow {
-  background: rgba(20, 23, 34, 0.75);
+  background: rgba(20, 23, 34, 0.82);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(224, 36, 195, 0.25);
-  box-shadow: 0 8px 32px -8px rgba(224, 36, 195, 0.15);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  box-shadow: 0 8px 32px -8px rgba(34, 211, 238, 0.12);
 }
 
 .aurora-gradient-text {
@@ -76,24 +125,14 @@ body {
   text-transform: uppercase;
 }
 
-/* Scanline / Grain overlay effect */
 .analog-grain {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
-/* Subtle animation pulses */
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 6s ease-in-out infinite;
+/* Custom brush stroke underline */
+.dry-brush-line {
+  height: 6px;
+  background: currentColor;
+  clip-path: polygon(0% 20%, 5% 0%, 25% 15%, 55% 5%, 85% 25%, 100% 10%, 98% 80%, 75% 95%, 45% 85%, 20% 100%, 0% 85%);
 }
