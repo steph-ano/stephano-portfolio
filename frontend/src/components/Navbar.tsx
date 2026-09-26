@@ -75,23 +75,15 @@ export const Navbar: React.FC = () => {
             href="#skills"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="text-zinc-400 hover:text-white transition-colors"
+            className="text-zinc-300 hover:text-orange-400 transition-colors"
           >
             // ARQUITECTURA
-          </a>
-          <a
-            href="#signals"
-            onMouseEnter={() => sound.playHover()}
-            onClick={() => sound.playClick()}
-            className="text-zinc-400 hover:text-white transition-colors"
-          >
-            // FRECUENCIAS & LAB
           </a>
           <a
             href="#trajectory"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="text-zinc-400 hover:text-white transition-colors"
+            className="text-zinc-300 hover:text-amber-400 transition-colors"
           >
             // TRAYECTORIA
           </a>

@@ -5,7 +5,6 @@ import { Hero } from './components/Hero';
 import { VisualGallerySection } from './components/VisualGallerySection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { SkillsSection } from './components/SkillsSection';
-import { ArtMusicSection } from './components/ArtMusicSection';
 import { TimelineSection } from './components/TimelineSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -154,7 +153,6 @@ export const App: React.FC = () => {
         <VisualGallerySection />
         <ProjectsSection projects={projects} />
         <SkillsSection categories={cvData?.skillCategories} />
-        <ArtMusicSection />
         <TimelineSection />
         <ContactSection />
       </main>
