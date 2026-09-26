@@ -103,10 +103,10 @@ export const Navbar: React.FC = () => {
           <button
             onClick={handleToggleSound}
             onMouseEnter={() => sound.playHover()}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-mono transition-all ${
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-mono transition-all cursor-pointer ${
               muted
                 ? 'bg-zinc-900/60 text-zinc-500 border-zinc-800'
-                : 'bg-zinc-900/90 text-cyan-300 border-cyan-500/40 shadow-sm shadow-cyan-500/10'
+                : 'bg-zinc-900/90 text-sky-300 border-sky-500/40 shadow-sm shadow-sky-500/10'
             }`}
             title={muted ? 'Activar feedback sonoro (Web Audio)' : 'Silenciar feedback sonoro'}
           >
@@ -117,8 +117,8 @@ export const Navbar: React.FC = () => {
               </>
             ) : (
               <>
-                <Volume2 className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-                <span className="hidden sm:inline">44.1 kHz</span>
+                <Volume2 className="w-3.5 h-3.5 text-sky-400 animate-pulse" />
+                <span className="hidden sm:inline">CH 44.1 kHz</span>
               </>
             )}
           </button>

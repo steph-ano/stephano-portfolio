@@ -13,8 +13,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto glass-panel-glow bg-[#0d0f18] rounded-2xl border border-zinc-700 shadow-2xl p-6 sm:p-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto zine-panel bg-[#11141e] rounded-2xl border border-amber-500/40 shadow-2xl p-6 sm:p-8">
         {/* Close Button */}
         <button
           onClick={() => {
@@ -22,7 +22,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             onClose();
           }}
           onMouseEnter={() => sound.playHover()}
-          className="absolute top-5 right-5 p-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors cursor-pointer"
           aria-label="Cerrar modal"
         >
           <X className="w-5 h-5" />
@@ -30,12 +30,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Modal Header */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2.5 rounded-xl bg-gradient-to-tr from-pink-500/20 to-purple-500/20 border border-pink-500/40 text-pink-400">
+          <div className="p-2.5 rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-400">
             <Disc3 className="w-6 h-6 animate-spin duration-3000" />
           </div>
           <div>
-            <span className="mono-tag text-pink-400 font-semibold">{project.bpm || '120 BPM'} • {project.soundMood || 'VANGUARD'}</span>
-            <h2 className="text-2xl sm:text-3xl font-bold font-['Syne'] text-white">
+            <span className="tech-stamp-sky">{project.bpm || 'CLOCK: 120 BPM'} • {project.soundMood || 'VANGUARD'}</span>
+            <h2 className="text-2xl sm:text-3xl font-bold font-['Syne'] text-white mt-1">
               {project.displayName || project.name}
             </h2>
           </div>
@@ -46,12 +46,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </p>
 
         {/* Architectural Overview */}
-        <div className="p-4 rounded-xl bg-zinc-900/70 border border-zinc-800 mb-6">
-          <div className="text-xs font-mono text-zinc-400 flex items-center gap-2 mb-2">
-            <Cpu className="w-4 h-4 text-cyan-400" />
+        <div className="p-5 rounded-xl bg-zinc-900/80 border border-amber-500/20 mb-6">
+          <div className="text-xs font-mono text-amber-400 flex items-center gap-2 mb-2 font-bold">
+            <Cpu className="w-4 h-4 text-sky-400" />
             <span>ARQUITECTURA & DISEÑO DEL SISTEMA</span>
           </div>
-          <p className="text-zinc-300 text-sm leading-relaxed">
+          <p className="text-zinc-200 text-sm leading-relaxed">
             {project.customDescription || project.description}
           </p>
         </div>
@@ -61,11 +61,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div className="mb-6">
             <div className="text-xs font-mono text-zinc-400 mb-2 flex items-center justify-between">
               <span>DISTRIBUCIÓN DE CÓDIGO</span>
-              <span className="text-pink-400">GITHUB LIVE METRICS</span>
+              <span className="text-amber-400 font-semibold">GITHUB LIVE METRICS</span>
             </div>
             <div className="w-full h-2 rounded-full bg-zinc-800 overflow-hidden flex mb-2">
               {Object.entries(project.languages).map(([lang, pct], idx) => {
-                const colors = ['bg-pink-500', 'bg-purple-500', 'bg-cyan-400', 'bg-emerald-400', 'bg-amber-400'];
+                const colors = ['bg-amber-400', 'bg-sky-400', 'bg-orange-500', 'bg-yellow-200', 'bg-slate-400'];
                 return (
                   <div
                     key={lang}
@@ -94,7 +94,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               {project.topics.map((t) => (
                 <span
                   key={t}
-                  className="px-2.5 py-1 rounded-lg text-xs font-mono bg-zinc-800/80 border border-zinc-700/60 text-zinc-300"
+                  className="px-2.5 py-1 rounded-lg text-xs font-mono bg-zinc-900/90 border border-amber-500/20 text-zinc-200"
                 >
                   #{t}
                 </span>
@@ -104,10 +104,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         )}
 
         {/* Documentation / Readme preview */}
-        <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800/80 mb-6 font-mono text-xs text-zinc-300 whitespace-pre-wrap leading-relaxed">
-          <div className="flex items-center gap-2 text-zinc-400 pb-2 mb-2 border-b border-zinc-800">
-            <Terminal className="w-3.5 h-3.5 text-emerald-400" />
-            <span>README SPECIFICATION</span>
+        <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 mb-6 font-mono text-xs text-zinc-300 whitespace-pre-wrap leading-relaxed">
+          <div className="flex items-center gap-2 text-amber-400 pb-2 mb-2 border-b border-zinc-800">
+            <Terminal className="w-3.5 h-3.5 text-sky-400" />
+            <span className="font-bold">README SPECIFICATION</span>
           </div>
           {project.readmeMarkdown || project.description}
         </div>
@@ -115,7 +115,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Modal Actions */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-800">
           <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
-            <Sparkles className="w-3.5 h-3.5 text-pink-400" />
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>GITHUB: {project.githubOwner}/{project.githubRepo}</span>
           </div>
 
@@ -139,9 +139,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 rel="noreferrer"
                 onClick={() => sound.playClick()}
                 onMouseEnter={() => sound.playHover()}
-                className="px-4 py-2 rounded-xl text-xs font-mono bg-pink-600 hover:bg-pink-500 text-white flex items-center gap-2 transition-colors"
+                className="px-4 py-2 rounded-xl text-xs font-mono bg-amber-400 hover:bg-amber-300 text-black font-bold flex items-center gap-2 transition-colors"
               >
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-4 h-4 text-black" />
                 <span>Demo en Vivo</span>
               </a>
             )}

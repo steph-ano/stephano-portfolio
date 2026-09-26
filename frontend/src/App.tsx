@@ -137,12 +137,24 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0c0d12] text-zinc-100 relative selection:bg-amber-500 selection:text-black">
+    <div className="min-h-screen bg-[#0e111a] text-zinc-100 relative selection:bg-amber-500 selection:text-black">
+      {/* Persistent Atmospheric Desert Mountain Backdrop from JPEGMAFIA ILDMLFY */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/assets/ildmlfy.jpg"
+          alt=""
+          className="w-full h-full object-cover object-[center_35%] filter brightness-[0.5] contrast-[1.15] saturate-[1.25] opacity-30 scale-105"
+        />
+        {/* Warm desert ochre, sky blue, and sumi-e atmospheric tints */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f1118]/40 via-[#10131c]/85 to-[#0c0d12]/98" />
+        <div className="absolute inset-0 drafting-grid opacity-35" />
+      </div>
+
       {/* Background Interactive Aurora & Particle Field */}
       <AuroraCanvas />
 
       {/* Noise Texture Overlay */}
-      <div className="fixed inset-0 pointer-events-none z-0 analog-grain opacity-30" />
+      <div className="fixed inset-0 pointer-events-none z-0 analog-grain opacity-25" />
 
       {/* Navigation Bar */}
       <Navbar />
