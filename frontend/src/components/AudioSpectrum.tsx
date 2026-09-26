@@ -89,8 +89,8 @@ export const AudioSpectrum: React.FC<AudioSpectrumProps> = ({
       title={interactive ? 'Click para alternar pulso sonoro reactivo' : ''}
     >
       <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-400">
-        <Activity className={`w-3.5 h-3.5 ${isPlaying ? 'text-pink-400 animate-pulse' : 'text-zinc-500'}`} />
-        <span className="hidden sm:inline">AUDIO SPECTRUM</span>
+        <Activity className={`w-3.5 h-3.5 ${isPlaying ? 'text-cyan-400 animate-pulse' : 'text-zinc-500'}`} />
+        <span className="hidden sm:inline">SIGNAL // 44.1 kHz</span>
       </div>
 
       <canvas

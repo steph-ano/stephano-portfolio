@@ -59,39 +59,39 @@ export const Navbar: React.FC = () => {
             href="#projects"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="text-zinc-300 hover:text-pink-400 transition-colors"
+            className="text-zinc-400 hover:text-white transition-colors"
           >
-            // PROYECTOS
+            // SISTEMAS
           </a>
           <a
             href="#skills"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="text-zinc-300 hover:text-purple-400 transition-colors"
+            className="text-zinc-400 hover:text-white transition-colors"
           >
-            // ARQUITECTURA & SKILLS
+            // ARQUITECTURA
           </a>
           <a
-            href="#sonic-dna"
+            href="#signals"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="text-zinc-300 hover:text-cyan-400 transition-colors flex items-center gap-1"
+            className="text-zinc-400 hover:text-white transition-colors"
           >
-            // ADN SONORO
+            // FRECUENCIAS & LAB
           </a>
           <a
             href="#trajectory"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="text-zinc-300 hover:text-amber-400 transition-colors"
+            className="text-zinc-400 hover:text-white transition-colors"
           >
-            // EDUCACIÓN
+            // TRAYECTORIA
           </a>
           <a
             href="#contact"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="text-zinc-300 hover:text-rose-400 transition-colors"
+            className="text-zinc-400 hover:text-white transition-colors"
           >
             // CONTACTO
           </a>
@@ -99,26 +99,26 @@ export const Navbar: React.FC = () => {
 
         {/* Action Controls: Sound FX Toggle + External Links */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Sound Toggle Button */}
+          {/* Hardware Monitor Sound Toggle */}
           <button
             onClick={handleToggleSound}
             onMouseEnter={() => sound.playHover()}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-mono transition-all ${
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-mono transition-all ${
               muted
                 ? 'bg-zinc-900/60 text-zinc-500 border-zinc-800'
-                : 'bg-pink-950/40 text-pink-300 border-pink-500/40 shadow-sm shadow-pink-500/20'
+                : 'bg-zinc-900/90 text-cyan-300 border-cyan-500/40 shadow-sm shadow-cyan-500/10'
             }`}
-            title={muted ? 'Activar efectos sonoros Web Audio' : 'Silenciar efectos sonoros'}
+            title={muted ? 'Activar feedback sonoro (Web Audio)' : 'Silenciar feedback sonoro'}
           >
             {muted ? (
               <>
                 <VolumeX className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">MUTED</span>
+                <span className="hidden sm:inline">MUTE</span>
               </>
             ) : (
               <>
-                <Volume2 className="w-3.5 h-3.5 text-pink-400 animate-pulse" />
-                <span className="hidden sm:inline">AUDIO ON</span>
+                <Volume2 className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+                <span className="hidden sm:inline">44.1 kHz</span>
               </>
             )}
           </button>

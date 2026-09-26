@@ -15,12 +15,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects }) => {
         <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-700/60 text-xs font-mono text-zinc-300">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>ESTUDIANTE DE ING. DE SOFTWARE • UPC</span>
+            <span>INGENIERÍA DE SOFTWARE • UPC MONTERRICO</span>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-950/40 border border-pink-500/30 text-xs font-mono text-pink-300">
-            <Sparkles className="w-3 h-3 text-pink-400" />
-            <span>ARTE EXPERIMENTAL & SONIDO</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-zinc-400">
+            <span className="text-cyan-400">●</span>
+            <span>LATENCY: &lt;12ms // BUFFER: 256</span>
           </div>
         </div>
 
@@ -34,12 +34,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects }) => {
 
         {/* Subtitle / Role Statement */}
         <p className="text-xl sm:text-2xl text-zinc-200 font-medium max-w-3xl mb-4">
-          Software Engineer & Arquitecto de Experiencias Interactivas
+          Software Engineer • Sistemas Distribuidos & Experiencias Web
         </p>
 
         <p className="text-sm sm:text-base text-zinc-400 max-w-2xl leading-relaxed mb-8">
-          Diseño sistemas distribuidos robustos, APIs REST escalables y microservicios orientados a eventos, 
-          fusionados con la estética visceral, sincopada y texturizada del post-punk y el digicore experimental.
+          Construyo arquitecturas orientadas a eventos con Spring Boot 3, .NET 8 y RabbitMQ, 
+          diseñadas con obsesión por la resiliencia técnica, el modelado relacional y la precisión sensorial en la interacción.
         </p>
 
         {/* Audio Spectrum Visualizer Bar in Hero */}
@@ -59,20 +59,20 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects }) => {
             className="group relative px-6 py-3.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 shadow-xl shadow-pink-600/25 hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2.5"
           >
             <Play className="w-4 h-4 fill-white group-hover:translate-x-0.5 transition-transform" />
-            <span>DISCOGRAFÍA DE CÓDIGO</span>
+            <span>EXPLORAR SISTEMAS</span>
           </button>
 
           <a
-            href="#sonic-dna"
+            href="#signals"
             onClick={() => {
               sound.playClick();
               sound.playChord();
             }}
             onMouseEnter={() => sound.playHover()}
-            className="px-6 py-3.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider text-zinc-200 glass-panel hover:bg-zinc-800/80 hover:text-white border-zinc-700/60 hover:border-purple-500/50 transition-all flex items-center gap-2"
+            className="px-6 py-3.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider text-zinc-200 glass-panel hover:bg-zinc-800/80 hover:text-white border-zinc-700/60 hover:border-cyan-500/50 transition-all flex items-center gap-2"
           >
-            <Sparkles className="w-4 h-4 text-purple-400" />
-            <span>MANIFIESTO & ADN SONORO</span>
+            <Sparkles className="w-4 h-4 text-cyan-400" />
+            <span>CRITERIO DE DISEÑO & LAB</span>
           </a>
 
           <a

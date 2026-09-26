@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Project } from '../types';
 import { sound } from '../audio/SoundFX';
-import { Star, GitFork, Disc3, ExternalLink, Code2, Play, Volume2, Sparkles, Terminal } from 'lucide-react';
+import { Star, GitFork, Disc3, ExternalLink, Code2, Play, Volume2, Sparkles, Terminal, Radio } from 'lucide-react';
 import { ProjectModal } from './ProjectModal';
 
 interface ProjectsSectionProps {
@@ -41,16 +41,16 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-zinc-800 pb-6 gap-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono text-pink-400 mb-2">
-            <Disc3 className="w-4 h-4 animate-spin duration-3000" />
-            <span>DISCOGRAFÍA DE CÓDIGO // PORTAFOLIO GITHUB</span>
+          <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 mb-2">
+            <Radio className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+            <span>REGISTRO DE SISTEMAS // GITHUB LIVE PIPELINE</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black font-['Syne'] text-white">
             PROYECTOS & <span className="aurora-gradient-text">ARQUITECTURA</span>
           </h2>
           <p className="text-zinc-400 text-sm mt-2 max-w-xl">
-            Repositorios seleccionados conectados a la API de GitHub mediante backend Java Spring Boot, 
-            con métricas en vivo, taxonomía C4 y perfil de pulso sonoro.
+            Sistemas seleccionados integrados en vivo con GitHub API mediante backend Spring Boot 3 con Caffeine cache, 
+            diseñados con principios de microservicios, teoría de grafos y alta reactividad.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
               onMouseEnter={() => sound.playHover()}
               className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
                 filter === opt.key
-                  ? 'bg-pink-600 text-white shadow-md shadow-pink-600/30'
+                  ? 'bg-zinc-100 text-black font-semibold shadow-md'
                   : 'bg-zinc-900/80 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
               }`}
             >
@@ -87,34 +87,34 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                 setSelectedProject(project);
               }}
               onMouseEnter={() => sound.playHover()}
-              className="group relative glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-pink-500/50 hover:shadow-xl hover:shadow-pink-500/10 transition-all cursor-pointer overflow-hidden"
+              className="group relative glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/10 transition-all cursor-pointer overflow-hidden"
             >
               {/* Top ambient glow line */}
               <div
                 className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r opacity-70 group-hover:opacity-100 transition-opacity"
                 style={{
-                  backgroundImage: `linear-gradient(to right, ${project.badgeColor || '#e024c3'}, #8b5cf6, #22d3ee)`
+                  backgroundImage: `linear-gradient(to right, ${project.badgeColor || '#22d3ee'}, #8b5cf6, #e024c3)`
                 }}
               />
 
               <div>
-                {/* Track number & sound preview button */}
+                {/* Module code & telemetry preview */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="mono-tag text-zinc-500 group-hover:text-pink-400 transition-colors font-bold">
-                    TRACK #{String(index + 1).padStart(2, '0')}
+                  <span className="mono-tag text-zinc-500 group-hover:text-cyan-400 transition-colors font-bold">
+                    SYS.0{index + 1} // {project.primaryLanguage.toUpperCase()}
                   </span>
 
                   <div className="flex items-center gap-2">
                     <button
                       onClick={(e) => handlePlaySoundMood(e, project)}
-                      title={`Reproducir sonido característico (${project.soundMood || 'Vibe'})`}
-                      className="p-1.5 rounded-lg bg-zinc-800/80 hover:bg-pink-950/80 text-zinc-400 hover:text-pink-300 border border-zinc-700/50 hover:border-pink-500/40 transition-colors"
+                      title="Probar respuesta acústica de señal"
+                      className="p-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-cyan-300 border border-zinc-800 hover:border-cyan-500/40 transition-colors"
                     >
                       <Volume2 className="w-3.5 h-3.5" />
                     </button>
 
-                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700/50">
-                      {project.bpm || '130 BPM'}
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                      {project.bpm || 'CLOCK: REALTIME'}
                     </span>
                   </div>
                 </div>
