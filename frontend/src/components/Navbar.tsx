@@ -117,8 +117,8 @@ export const Navbar: React.FC = () => {
               </>
             ) : (
               <>
-                <Volume2 className="w-3.5 h-3.5 text-sky-400 animate-pulse" />
-                <span className="hidden sm:inline">CH 44.1 kHz</span>
+                <Volume2 className="w-3.5 h-3.5 text-sky-400" />
+                <span className="hidden sm:inline">AUDIO ON</span>
               </>
             )}
           </button>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowDown, Mail, Phone, Play, Sparkles, Terminal, Activity, Layers } from 'lucide-react';
 import { sound } from '../audio/SoundFX';
-import { AudioSpectrum } from './AudioSpectrum';
 
 interface HeroProps {
   onExploreProjects: () => void;
@@ -82,13 +81,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects }) => {
 
 
 
-        {/* Realtime Telemetry Signal */}
-        <div className="mb-8">
-          <AudioSpectrum barCount={36} className="bg-black/70 backdrop-blur-md border-white/20 shadow-2xl" />
-        </div>
-
         {/* Action Controls */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
           <button
             onClick={() => {
               sound.playClick();
