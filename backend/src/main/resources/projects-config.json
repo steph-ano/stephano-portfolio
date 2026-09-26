@@ -74,5 +74,30 @@
     "bpm": "140 BPM",
     "soundMood": "Glitch, post-punk distortion, expressive textures",
     "accentColor": "from-rose-500 to-amber-500"
+  },
+  {
+    "id": "arbitrage-bot",
+    "name": "ArbitrageBot",
+    "displayName": "ArbitrageBot – Motor de Arbitraje Algorítmico & Spreads",
+    "tagline": "Sistema de alta concurrencia para detección y ejecución de discrepancias de precio en tiempo real",
+    "description": "Bot automatizado para escaneo continuo de libros de órdenes, detección de spreads y cálculo de rutas de arbitraje triangular y espacial con baja latencia.",
+    "customDescription": "Diseñado con arquitectura reactiva, WebSockets concurrentes para ingesta de feeds de mercado a milisegundos, manejo de riesgo parametrizado (slippage, depth tolerance) y logging de métricas en PostgreSQL.",
+    "githubOwner": "stephanovaldivia",
+    "githubRepo": "ArbitrageBot",
+    "primaryLanguage": "Python",
+    "languages": {
+      "Python": 70.0,
+      "C#": 20.0,
+      "SQL": 10.0
+    },
+    "topics": ["algorithmic-trading", "arbitrage", "websockets", "asyncio", "market-maker", "low-latency", "financial-engineering"],
+    "homepage": "https://github.com/stephanovaldivia/ArbitrageBot",
+    "githubUrl": "https://github.com/stephanovaldivia/ArbitrageBot",
+    "featured": true,
+    "order": 4,
+    "badgeColor": "#d99b43",
+    "bpm": "172 BPM",
+    "soundMood": "Kinetic, algorithmic pulse, high-frequency execution",
+    "accentColor": "from-amber-400 to-orange-500"
   }
 ]
