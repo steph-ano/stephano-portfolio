@@ -15,13 +15,13 @@ export const ContactSection: React.FC = () => {
     sound.playClick();
     sound.playChord();
 
-    // Trigger celebratory confetti
+    // Trigger celebratory confetti in desert gold, monarch orange, and sky blue hues
     try {
       confetti({
         particleCount: 80,
         spread: 70,
         origin: { y: 0.75 },
-        colors: ['#e024c3', '#8b5cf6', '#22d3ee', '#10b981', '#f43f5e']
+        colors: ['#5ba4e5', '#d99b43', '#ea580c', '#fef08a', '#ffffff']
       });
     } catch {
       // Confetti fallback
@@ -214,7 +214,7 @@ export const ContactSection: React.FC = () => {
                 <button
                   type="submit"
                   onMouseEnter={() => sound.playHover()}
-                  className="w-full py-3.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 hover:opacity-95 shadow-lg shadow-pink-600/20 active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 via-orange-500 to-sky-400 hover:opacity-95 shadow-lg shadow-orange-500/20 active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer font-bold"
                 >
                   <Send className="w-4 h-4" />
                   <span>DISPARAR MENSAJE & CONECTAR</span>

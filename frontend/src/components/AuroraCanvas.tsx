@@ -29,22 +29,23 @@ export const AuroraCanvas: React.FC = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Floating luminous particles
-    const particleCount = 45;
+    // Floating luminous particles in desert gold, monarch orange, and sky blue hues
+    const particleCount = 40;
     const particles = Array.from({ length: particleCount }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      radius: Math.random() * 2.5 + 1.2,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      hue: Math.random() * 60 + 280, // Magenta to purple to cyan
-      alpha: Math.random() * 0.5 + 0.2,
+      radius: Math.random() * 2.2 + 1.0,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      // Hues: 25 to 45 (Golden Amber / Tangerine) and 195 to 215 (Desert Sky Blue)
+      hue: Math.random() > 0.4 ? Math.random() * 25 + 25 : Math.random() * 25 + 195,
+      alpha: Math.random() * 0.45 + 0.2,
     }));
 
     let time = 0;
 
     const render = () => {
-      time += 0.008;
+      time += 0.007;
 
       // Easing mouse
       mouse.x += (mouse.targetX - mouse.x) * 0.05;
@@ -52,36 +53,36 @@ export const AuroraCanvas: React.FC = () => {
 
       ctx.clearRect(0, 0, width, height);
 
-      // Aurora Gradient Blob 1 (Purple/Magenta)
+      // Gradient 1: Monarch Amber / Warm Desert Ochre (follows mouse)
       const grad1 = ctx.createRadialGradient(
         mouse.x,
         mouse.y,
         0,
         mouse.x,
         mouse.y,
-        Math.max(width * 0.4, 350)
+        Math.max(width * 0.38, 320)
       );
-      grad1.addColorStop(0, 'rgba(224, 36, 195, 0.12)');
-      grad1.addColorStop(0.5, 'rgba(139, 92, 246, 0.06)');
-      grad1.addColorStop(1, 'rgba(8, 9, 13, 0)');
+      grad1.addColorStop(0, 'rgba(245, 158, 11, 0.10)'); // Amber
+      grad1.addColorStop(0.5, 'rgba(234, 88, 12, 0.05)'); // Tangerine
+      grad1.addColorStop(1, 'rgba(12, 13, 18, 0)');
 
       ctx.fillStyle = grad1;
       ctx.fillRect(0, 0, width, height);
 
-      // Aurora Gradient Blob 2 (Cyan/Acid Lime - drifts opposite)
-      const blob2X = width - mouse.x * 0.6 + Math.sin(time) * 120;
-      const blob2Y = height * 0.3 + Math.cos(time * 0.8) * 90;
+      // Gradient 2: Cerulean Desert Sky Blue (drifts smoothly)
+      const blob2X = width - mouse.x * 0.5 + Math.sin(time) * 100;
+      const blob2Y = height * 0.25 + Math.cos(time * 0.7) * 80;
       const grad2 = ctx.createRadialGradient(
         blob2X,
         blob2Y,
         0,
         blob2X,
         blob2Y,
-        Math.max(width * 0.35, 300)
+        Math.max(width * 0.32, 280)
       );
-      grad2.addColorStop(0, 'rgba(34, 211, 238, 0.09)');
-      grad2.addColorStop(0.6, 'rgba(16, 185, 129, 0.04)');
-      grad2.addColorStop(1, 'rgba(8, 9, 13, 0)');
+      grad2.addColorStop(0, 'rgba(14, 165, 233, 0.09)'); // Sky blue
+      grad2.addColorStop(0.6, 'rgba(56, 189, 248, 0.03)');
+      grad2.addColorStop(1, 'rgba(12, 13, 18, 0)');
 
       ctx.fillStyle = grad2;
       ctx.fillRect(0, 0, width, height);
@@ -91,13 +92,12 @@ export const AuroraCanvas: React.FC = () => {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Repel or attract slightly towards mouse
         const dx = mouse.x - p.x;
         const dy = mouse.y - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 180) {
-          p.x += (dx / dist) * 0.8;
-          p.y += (dy / dist) * 0.8;
+        if (dist < 160) {
+          p.x += (dx / dist) * 0.7;
+          p.y += (dy / dist) * 0.7;
         }
 
         if (p.x < 0) p.x = width;
@@ -107,9 +107,9 @@ export const AuroraCanvas: React.FC = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${p.hue + Math.sin(time) * 30}, 85%, 65%, ${p.alpha})`;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = `hsla(${p.hue}, 90%, 60%, 0.8)`;
+        ctx.fillStyle = `hsla(${p.hue}, 90%, 65%, ${p.alpha})`;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = `hsla(${p.hue}, 90%, 60%, 0.7)`;
         ctx.fill();
       });
       ctx.shadowBlur = 0;
@@ -129,7 +129,7 @@ export const AuroraCanvas: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-80"
+      className="fixed inset-0 pointer-events-none z-0 opacity-85"
       style={{ mixBlendMode: 'screen' }}
     />
   );

@@ -37,29 +37,37 @@ export const Navbar: React.FC = () => {
           onClick={() => sound.playClick()}
           className="flex items-center gap-3 group"
         >
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-tr from-pink-600 via-purple-600 to-cyan-400 p-[1.5px] transition-transform group-hover:scale-105">
+          <div className="w-9 h-9 rounded-lg bg-gradient-to-tr from-amber-500 via-orange-600 to-sky-400 p-[1.5px] transition-transform group-hover:scale-105">
             <div className="w-full h-full bg-black/90 rounded-[7px] flex items-center justify-center">
-              <Disc3 className="w-5 h-5 text-pink-400 group-hover:rotate-180 transition-transform duration-700" />
+              <Disc3 className="w-5 h-5 text-amber-400 group-hover:rotate-180 transition-transform duration-700" />
             </div>
           </div>
           <div>
             <div className="font-bold tracking-tight text-white font-['Syne'] text-base flex items-center gap-1.5">
-              STEPHANO <span className="text-pink-500 font-mono text-xs px-1.5 py-0.5 rounded bg-pink-500/10 border border-pink-500/20">DEV</span>
+              STEPHANO <span className="text-amber-400 font-mono text-xs px-1.5 py-0.5 rounded bg-amber-400/10 border border-amber-400/20">DEV</span>
             </div>
             <div className="text-[11px] text-zinc-400 font-mono flex items-center gap-1">
-              <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
+              <Radio className="w-3 h-3 text-sky-400 animate-pulse" />
               <span>UPC • 8VO CICLO</span>
             </div>
           </div>
         </a>
 
         {/* Navigation Anchors */}
-        <nav className="hidden md:flex items-center gap-7 text-xs font-mono tracking-wider">
+        <nav className="hidden md:flex items-center gap-6 text-xs font-mono tracking-wider">
+          <a
+            href="#visual-gallery"
+            onMouseEnter={() => sound.playHover()}
+            onClick={() => sound.playClick()}
+            className="text-zinc-300 hover:text-amber-400 transition-colors"
+          >
+            // GALERÍA VISUAL
+          </a>
           <a
             href="#projects"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="text-zinc-400 hover:text-white transition-colors"
+            className="text-zinc-300 hover:text-sky-400 transition-colors"
           >
             // SISTEMAS
           </a>

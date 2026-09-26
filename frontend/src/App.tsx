@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AuroraCanvas } from './components/AuroraCanvas';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { VisualGallerySection } from './components/VisualGallerySection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ArtMusicSection } from './components/ArtMusicSection';
@@ -137,12 +138,12 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#08090d] text-zinc-100 relative selection:bg-pink-600 selection:text-white">
+    <div className="min-h-screen bg-[#0c0d12] text-zinc-100 relative selection:bg-amber-500 selection:text-black">
       {/* Background Interactive Aurora & Particle Field */}
       <AuroraCanvas />
 
       {/* Noise Texture Overlay */}
-      <div className="fixed inset-0 pointer-events-none z-0 analog-grain opacity-40" />
+      <div className="fixed inset-0 pointer-events-none z-0 analog-grain opacity-30" />
 
       {/* Navigation Bar */}
       <Navbar />
@@ -150,6 +151,7 @@ export const App: React.FC = () => {
       {/* Main Content */}
       <main className="relative z-10">
         <Hero onExploreProjects={handleExploreProjects} />
+        <VisualGallerySection />
         <ProjectsSection projects={projects} />
         <SkillsSection categories={cvData?.skillCategories} />
         <ArtMusicSection />
