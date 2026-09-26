@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+backend/target/
+dist/
+
+# Environment and Local configs
+.env
+.env.local
+*.log
+
+# IDE & Editor
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS files
+Thumbs.db
+.DS_Store
