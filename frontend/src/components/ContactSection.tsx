@@ -245,7 +245,7 @@ export const ContactSection: React.FC = () => {
 
                 {/* GitHub */}
                 <a
-                  href="https://github.com/stephanovaldivia"
+                  href="https://github.com/steph-ano"
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => sound.playClick()}
@@ -259,7 +259,7 @@ export const ContactSection: React.FC = () => {
                   <div>
                     <div className="text-[10px] font-mono text-zinc-500">CÓDIGO & REPOSITORIOS</div>
                     <div className="text-sm font-bold text-white font-mono group-hover:text-amber-300 transition-colors">
-                      github/stephanovaldivia
+                      github/steph-ano
                     </div>
                   </div>
                 </a>

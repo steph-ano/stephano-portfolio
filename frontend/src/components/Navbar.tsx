@@ -125,7 +125,7 @@ export const Navbar: React.FC = () => {
 
           {/* Social Links */}
           <a
-            href="https://github.com/stephanovaldivia"
+            href="https://github.com/steph-ano"
             target="_blank"
             rel="noreferrer"
             onMouseEnter={() => sound.playHover()}
