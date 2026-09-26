@@ -8,6 +8,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { TimelineSection } from './components/TimelineSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { SoundtrackPlayer } from './components/SoundtrackPlayer';
 import { Project, CvData } from './types';
 
 // Fallback curated projects in case API is loading or offline
@@ -171,6 +172,9 @@ export const App: React.FC = () => {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Bottom-Center Soundtrack Player */}
+      <SoundtrackPlayer />
     </div>
   );
 };

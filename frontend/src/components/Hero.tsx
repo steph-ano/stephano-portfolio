@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects }) => {
       <div className="relative z-10 w-full max-w-7xl mx-auto my-auto py-8 sm:py-12 flex flex-col items-center text-center">
         {/* Subtitle style from Reference 1 */}
         <div className="text-sm sm:text-base font-mono tracking-[0.3em] text-amber-200/95 uppercase mb-3 drop-shadow-md">
-          STEPHANO RENAN <span className="font-black text-white tracking-widest">VALDIVIA's</span>
+          STEPHANO <span className="font-black text-white tracking-widest">VALDIVIA's</span>
         </div>
 
         {/* Giant Brush Title with 3D Ghost Outline Layers */}
@@ -80,11 +80,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects }) => {
           <div className="w-56 sm:w-96 md:w-[32rem] mx-auto mt-3 h-4 bg-gradient-to-r from-amber-400 via-orange-500 to-sky-400 dry-brush-line opacity-95 shadow-2xl" />
         </div>
 
-        {/* Crisp Sub-Statement */}
-        <p className="max-w-2xl mx-auto text-sm sm:text-base text-zinc-100 font-sans leading-relaxed mb-8 drop-shadow-md bg-black/40 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/10">
-          Sistemas distribuidos en <b>Spring Boot 3</b> y <b>.NET 8</b>, pipelines de analítica en tiempo real con <b>RabbitMQ</b>, 
-          modelamiento relacional y experiencias web interactivas con textura y carácter.
-        </p>
+
 
         {/* Realtime Telemetry Signal */}
         <div className="mb-8">
