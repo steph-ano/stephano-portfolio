@@ -26,7 +26,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
 
   const handlePlaySoundMood = (e: React.MouseEvent, p: Project) => {
     e.stopPropagation();
-    if (p.id === 'vortexflow' || p.id === 'arbitrage-bot') {
+    if (p.id === 'vigilante') {
+      sound.playChord();
+    } else if (p.id === 'vortexflow' || p.id === 'arbitraje-bot') {
       sound.playSubBass();
     } else if (p.id === 'drug-graph-visualizer') {
       sound.playChord();
@@ -36,11 +38,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
   };
 
   const getProjectAccentGradient = (p: Project) => {
-    if (p.id === 'vortexflow') {
+    if (p.id === 'vigilante') {
+      return 'linear-gradient(to right, #38bdf8, #5ba4e5, #fef08a)';
+    } else if (p.id === 'vortexflow') {
       return 'linear-gradient(to right, #ea580c, #d99b43, #fef08a)';
     } else if (p.id === 'drug-graph-visualizer') {
       return 'linear-gradient(to right, #5ba4e5, #38bdf8, #d99b43)';
-    } else if (p.id === 'arbitrage-bot') {
+    } else if (p.id === 'arbitraje-bot') {
       return 'linear-gradient(to right, #d99b43, #ea580c, #38bdf8)';
     } else {
       return 'linear-gradient(to right, #f59e0b, #ea580c, #5ba4e5)';
