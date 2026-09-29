@@ -8,7 +8,9 @@
     "dev:backend": "cd backend && .\\mvnw.cmd spring-boot:run",
     "build:frontend": "npm --prefix frontend run build",
     "build:backend": "cd backend && .\\mvnw.cmd package -DskipTests",
-    "build": "npm run build:frontend && npm run build:backend"
+    "build": "npm run build:frontend && npm run build:backend",
+    "docker:build": "docker build -t stephano-portfolio .",
+    "docker:run": "docker run -p 8080:8080 stephano-portfolio"
   },
   "author": "Stephano Renan Valdivia Quispe",
   "license": "MIT"

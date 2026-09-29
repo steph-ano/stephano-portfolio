@@ -1,0 +1,12 @@
+**/node_modules
+**/target
+**/.git
+**/.gitignore
+**/.github
+**/*.log
+Soundtrack
+images-for-reference
+.mvn
+backend/mvnw
+backend/mvnw.cmd
+backend/HELP.md
