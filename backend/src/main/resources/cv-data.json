@@ -31,7 +31,7 @@
       "category": "Backend & APIs",
       "icon": "Server",
       "color": "from-violet-500 to-indigo-500",
-      "skills": ["Spring Boot 3", "Java", "C# .NET 8", "ASP.NET Core", "Python (Pandas, NetworkX)", "RESTful APIs", "SignalR (WebSockets)", "Hangfire"]
+      "skills": ["Go (Golang)", "Spring Boot 3", "Java 21", "C# .NET 8", "ASP.NET Core", "Python (Pandas, NetworkX)", "RESTful APIs", "SignalR (WebSockets)", "Hangfire"]
     },
     {
       "category": "Bases de Datos & Caché",
@@ -43,7 +43,7 @@
       "category": "Arquitectura & DevOps",
       "icon": "Cpu",
       "color": "from-emerald-500 to-teal-500",
-      "skills": ["Microservicios", "Event Sourcing", "Patrón Sagas", "RabbitMQ (Message Broker)", "Modelos C4", "Docker & Docker Compose", "CI/CD con GitHub Actions"]
+      "skills": ["Microservicios", "Event Sourcing", "Patrón Sagas", "Transactional Outbox", "Bloqueo Pesimista (SKIP LOCKED)", "RabbitMQ (Message Broker)", "Modelos C4", "Docker & Docker Compose", "CI/CD con GitHub Actions"]
     },
     {
       "category": "Metodologías & Liderazgo",

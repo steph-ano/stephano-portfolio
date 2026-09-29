@@ -26,7 +26,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
 
   const handlePlaySoundMood = (e: React.MouseEvent, p: Project) => {
     e.stopPropagation();
-    if (p.id === 'vigilante') {
+    if (p.id === 'ledgerly') {
+      sound.playChord();
+    } else if (p.id === 'vigilante') {
       sound.playChord();
     } else if (p.id === 'vortexflow' || p.id === 'arbitraje-bot') {
       sound.playSubBass();
@@ -38,7 +40,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
   };
 
   const getProjectAccentGradient = (p: Project) => {
-    if (p.id === 'vigilante') {
+    if (p.id === 'ledgerly') {
+      return 'linear-gradient(to right, #00ADD8, #38bdf8, #10b981)';
+    } else if (p.id === 'vigilante') {
       return 'linear-gradient(to right, #38bdf8, #5ba4e5, #fef08a)';
     } else if (p.id === 'vortexflow') {
       return 'linear-gradient(to right, #ea580c, #d99b43, #fef08a)';
@@ -65,7 +69,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
           </h2>
           <p className="text-zinc-300 text-sm mt-2 max-w-xl leading-relaxed">
             Sistemas de software seleccionados e integrados en vivo con GitHub API mediante backend Spring Boot 3 con Caffeine Cache.
-            Diseñados bajo patrones de microservicios, bots de arbitraje algorítmico, streaming con RabbitMQ y grafos.
+            Abarcando motores de contabilidad inmutable en Go (Ledgerly), plataformas geoespaciales con Sentinel-2 (Vigilante), microservicios y grafos.
           </p>
         </div>
 
