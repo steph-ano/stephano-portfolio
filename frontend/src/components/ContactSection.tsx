@@ -45,57 +45,57 @@ export const ContactSection: React.FC = () => {
       </div>
 
       {/* Main Recruiter Dossier Panel */}
-      <div className="zine-panel corner-crosshairs rounded-3xl p-8 sm:p-12 border border-amber-500/25 relative overflow-hidden shadow-2xl">
+      <div className="zine-panel corner-crosshairs rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 border border-amber-500/25 relative overflow-hidden shadow-2xl">
         {/* Subtle Desert Atmosphere Glow */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/15 via-orange-500/10 to-sky-500/10 blur-3xl pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 relative z-10">
           {/* Left Column: Candidate Overview & Summary */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <span className="tech-stamp-sky">
                   CANDIDATO // SOFTWARE ENGINEER
                 </span>
-                <span className="text-xs font-mono text-zinc-400">UPC MONTERRICO</span>
+                <span className="text-[10px] sm:text-xs font-mono text-zinc-400">UPC MONTERRICO</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold font-['Syne'] text-white mb-2">
+              <h3 className="text-xl sm:text-3xl font-bold font-['Syne'] text-white mb-2">
                 Stephano Renan Valdivia Quispe
               </h3>
-              <p className="text-sm font-mono text-amber-400 font-semibold mb-6">
+              <p className="text-xs sm:text-sm font-mono text-amber-400 font-semibold mb-5 sm:mb-6">
                 Ingeniería de Software • 8vo Ciclo • Especialización Backend & Sistemas Distribuidos
               </p>
 
-              <div className="space-y-3.5 text-xs font-mono text-zinc-300 bg-zinc-950/70 p-5 rounded-2xl border border-zinc-800/90 mb-8">
-                <div className="flex items-center gap-3">
-                  <Briefcase className="w-4 h-4 text-sky-400 shrink-0" />
+              <div className="space-y-3 text-xs font-mono text-zinc-300 bg-zinc-950/70 p-4 sm:p-5 rounded-2xl border border-zinc-800/90 mb-6 sm:mb-8">
+                <div className="flex items-start sm:items-center gap-3">
+                  <Briefcase className="w-4 h-4 text-sky-400 shrink-0 mt-0.5 sm:mt-0" />
                   <div>
                     <span className="text-zinc-500">ROL OBJETIVO:</span>{' '}
                     <span className="text-zinc-100 font-semibold">Software Engineer / Backend Developer / Full Stack</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <Code2 className="w-4 h-4 text-amber-400 shrink-0" />
+                <div className="flex items-start sm:items-center gap-3">
+                  <Code2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5 sm:mt-0" />
                   <div>
                     <span className="text-zinc-500">CORE STACK:</span>{' '}
-                    <span className="text-zinc-100 font-semibold">Spring Boot 3 (Java), C# .NET 8, TypeScript, Python, RabbitMQ, PostgreSQL</span>
+                    <span className="text-zinc-100 font-semibold">Go (Golang), Spring Boot 3, C# .NET 8, TypeScript, PostgreSQL</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <GraduationCap className="w-4 h-4 text-orange-400 shrink-0" />
+                <div className="flex items-start sm:items-center gap-3">
+                  <GraduationCap className="w-4 h-4 text-orange-400 shrink-0 mt-0.5 sm:mt-0" />
                   <div>
                     <span className="text-zinc-500">FORMACIÓN:</span>{' '}
                     <span className="text-zinc-100 font-semibold">Universidad Peruana de Ciencias Aplicadas (UPC) — 2023–2026</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-sky-400 shrink-0" />
+                <div className="flex items-start sm:items-center gap-3">
+                  <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5 sm:mt-0" />
                   <div>
-                    <span className="text-zinc-500">UBICACIÓN & DISPONIBILIDAD:</span>{' '}
+                    <span className="text-zinc-500">UBICACIÓN:</span>{' '}
                     <span className="text-zinc-100 font-semibold">Lima, Perú • Presencial, Híbrido o Remoto</span>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Print / Action Buttons */}
-            <div className="pt-6 border-t border-zinc-800 flex flex-wrap items-center gap-3">
+            <div className="pt-4 sm:pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <button
                 type="button"
                 onClick={() => {
@@ -111,7 +111,7 @@ export const ContactSection: React.FC = () => {
                   window.print();
                 }}
                 onMouseEnter={() => sound.playHover()}
-                className="px-5 py-2.5 rounded-xl font-mono text-xs font-bold bg-amber-400 hover:bg-amber-300 text-black shadow-lg shadow-amber-500/20 active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl font-mono text-xs font-bold bg-amber-400 hover:bg-amber-300 text-black shadow-lg shadow-amber-500/20 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <FileText className="w-4 h-4 text-black" />
                 <span>IMPRIMIR FICHA / GUARDAR PDF</span>
@@ -121,7 +121,7 @@ export const ContactSection: React.FC = () => {
                 href="mailto:stephrvq@gmail.com"
                 onClick={() => sound.playClick()}
                 onMouseEnter={() => sound.playHover()}
-                className="px-5 py-2.5 rounded-xl font-mono text-xs font-bold zine-panel text-zinc-200 hover:text-white hover:border-amber-400 transition-all flex items-center gap-2"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl font-mono text-xs font-bold zine-panel text-zinc-200 hover:text-white hover:border-amber-400 transition-all flex items-center justify-center gap-2"
               >
                 <Mail className="w-4 h-4 text-amber-400" />
                 <span>ENVIAR CORREO DIRECTO</span>
@@ -133,16 +133,16 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-6 flex flex-col justify-between gap-4">
             <div className="space-y-4">
               {/* Email Card */}
-              <div className="p-5 rounded-2xl bg-zinc-950/80 border border-amber-500/20 hover:border-amber-500/40 transition-colors flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-amber-400">
-                    <Mail className="w-5 h-5" />
+              <div className="p-4 sm:p-5 rounded-2xl bg-zinc-950/80 border border-amber-500/20 hover:border-amber-500/40 transition-colors flex flex-col xs:flex-row xs:items-center justify-between gap-3 sm:gap-4">
+                <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
+                  <div className="p-2.5 sm:p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-amber-400 shrink-0">
+                    <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="min-w-0">
                     <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">CORREO ELECTRÓNICO</div>
                     <a
                       href="mailto:stephrvq@gmail.com"
-                      className="text-base font-bold text-white hover:text-amber-300 transition-colors font-mono truncate block"
+                      className="text-sm sm:text-base font-bold text-white hover:text-amber-300 transition-colors font-mono truncate block"
                     >
                       stephrvq@gmail.com
                     </a>
@@ -152,7 +152,7 @@ export const ContactSection: React.FC = () => {
                 <button
                   onClick={handleCopyEmail}
                   onMouseEnter={() => sound.playHover()}
-                  className="px-3 py-1.5 rounded-lg zine-panel text-xs font-mono text-zinc-300 hover:text-white hover:border-amber-400 flex items-center gap-1.5 shrink-0 cursor-pointer"
+                  className="self-end xs:self-center px-3 py-1.5 rounded-lg zine-panel text-xs font-mono text-zinc-300 hover:text-white hover:border-amber-400 flex items-center gap-1.5 shrink-0 cursor-pointer"
                   title="Copiar correo"
                 >
                   {copiedEmail ? (
@@ -170,23 +170,23 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Phone / WhatsApp Card */}
-              <div className="p-5 rounded-2xl bg-zinc-950/80 border border-sky-500/20 hover:border-sky-500/40 transition-colors flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-sky-400">
-                    <Phone className="w-5 h-5" />
+              <div className="p-4 sm:p-5 rounded-2xl bg-zinc-950/80 border border-sky-500/20 hover:border-sky-500/40 transition-colors flex flex-col xs:flex-row xs:items-center justify-between gap-3 sm:gap-4">
+                <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
+                  <div className="p-2.5 sm:p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-sky-400 shrink-0">
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="min-w-0">
                     <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">TELÉFONO // WHATSAPP</div>
                     <a
                       href="tel:+51923399455"
-                      className="text-base font-bold text-white hover:text-sky-300 transition-colors font-mono truncate block"
+                      className="text-sm sm:text-base font-bold text-white hover:text-sky-300 transition-colors font-mono truncate block"
                     >
                       +51 923 399 455
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1.5 shrink-0">
+                <div className="self-end xs:self-center flex items-center gap-1.5 shrink-0">
                   <button
                     onClick={handleCopyPhone}
                     onMouseEnter={() => sound.playHover()}

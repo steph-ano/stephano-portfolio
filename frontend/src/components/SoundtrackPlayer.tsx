@@ -59,6 +59,7 @@ export const SoundtrackPlayer: React.FC = () => {
   const [volume, setVolume] = useState<number>(0.65);
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const [showPlaylist, setShowPlaylist] = useState<boolean>(false);
+  const [isMinimized, setIsMinimized] = useState<boolean>(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const currentTrack = TRACKS[currentTrackIndex];
@@ -144,8 +145,57 @@ export const SoundtrackPlayer: React.FC = () => {
     return `${m}:${s < 10 ? '0' : ''}${s}`;
   };
 
+  if (isMinimized) {
+    return (
+      <div className="fixed bottom-3 right-3 sm:bottom-5 sm:right-5 z-40">
+        <audio
+          ref={audioRef}
+          src={currentTrack.src}
+          onTimeUpdate={handleTimeUpdate}
+          onLoadedMetadata={handleTimeUpdate}
+          onEnded={handleNext}
+          preload="metadata"
+        />
+        <div
+          onClick={() => {
+            sound.playClick();
+            setIsMinimized(false);
+          }}
+          className="zine-panel rounded-full px-3 py-2 border border-amber-500/50 shadow-2xl flex items-center gap-2 backdrop-blur-2xl cursor-pointer hover:border-amber-400 hover:scale-105 active:scale-95 transition-all text-xs font-mono"
+        >
+          <div className="w-6 h-6 rounded-full bg-zinc-900 border border-amber-500/40 flex items-center justify-center shrink-0">
+            <Disc3 className={`w-3.5 h-3.5 text-amber-400 ${isPlaying ? 'animate-spin duration-3000' : 'opacity-70'}`} />
+          </div>
+          <div className="flex items-center min-w-0 max-w-[100px] xs:max-w-[140px]">
+            <span className="text-white font-bold truncate text-[11px]">{currentTrack.title}</span>
+          </div>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              togglePlay();
+            }}
+            className="p-1 rounded-full bg-amber-400 text-black hover:bg-amber-300 transition-colors cursor-pointer"
+            title={isPlaying ? 'Pausar' : 'Reproducir'}
+          >
+            {isPlaying ? <Pause className="w-3 h-3 fill-black" /> : <Play className="w-3 h-3 fill-black ml-0.5" />}
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMinimized(false);
+            }}
+            className="text-zinc-400 hover:text-white p-0.5"
+            title="Expandir reproductor"
+          >
+            <ChevronUp className="w-3.5 h-3.5 text-amber-400" />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-2xl">
+    <div className="fixed bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-40 w-[95%] sm:w-[94%] max-w-2xl">
       {/* Hidden audio element */}
       <audio
         ref={audioRef}
@@ -158,16 +208,16 @@ export const SoundtrackPlayer: React.FC = () => {
 
       {/* Playlist Drawer (pops up above the bar) */}
       {showPlaylist && (
-        <div className="mb-2 zine-panel rounded-2xl p-4 border border-amber-500/40 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-2">
-          <div className="flex items-center justify-between pb-2 mb-3 border-b border-zinc-800 text-xs font-mono">
+        <div className="mb-2 zine-panel rounded-2xl p-3.5 sm:p-4 border border-amber-500/40 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-2 max-h-[60vh] flex flex-col">
+          <div className="flex items-center justify-between pb-2 mb-2 sm:mb-3 border-b border-zinc-800 text-xs font-mono">
             <div className="flex items-center gap-2 text-amber-400 font-bold">
               <Disc3 className="w-3.5 h-3.5 text-amber-400 animate-spin duration-3000" />
-              <span>SOUNDTRACK SELECTION // OFFICIAL TRACKLIST</span>
+              <span className="truncate">SOUNDTRACK SELECTION // TRACKLIST</span>
             </div>
-            <span className="text-[10px] text-zinc-400">4 TRACKS // NON-COMMERCIAL</span>
+            <span className="text-[10px] text-zinc-400 shrink-0">4 TRACKS</span>
           </div>
 
-          <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+          <div className="space-y-1.5 overflow-y-auto pr-1">
             {TRACKS.map((track, idx) => {
               const isSelected = idx === currentTrackIndex;
               return (
@@ -179,26 +229,26 @@ export const SoundtrackPlayer: React.FC = () => {
                     setIsPlaying(true);
                   }}
                   onMouseEnter={() => sound.playHover()}
-                  className={`flex items-center justify-between p-2.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+                  className={`flex items-center justify-between p-2 sm:p-2.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-amber-400/15 border border-amber-400/40 text-white'
                       : 'hover:bg-zinc-900/80 text-zinc-300 border border-transparent'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-[11px] text-amber-400 font-bold">0{idx + 1}</span>
-                    <div>
-                      <div className="font-bold text-zinc-100 flex items-center gap-1.5">
-                        <span>{track.title}</span>
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="text-[11px] text-amber-400 font-bold shrink-0">0{idx + 1}</span>
+                    <div className="min-w-0">
+                      <div className="font-bold text-zinc-100 flex items-center gap-1.5 truncate">
+                        <span className="truncate">{track.title}</span>
                         {isSelected && isPlaying && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping shrink-0" />
                         )}
                       </div>
-                      <div className="text-[10px] text-zinc-400">{track.artist} • {track.album}</div>
+                      <div className="text-[10px] text-zinc-400 truncate">{track.artist}</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 shrink-0">
                     {track.officialLink && (
                       <a
                         href={track.officialLink}
@@ -218,18 +268,18 @@ export const SoundtrackPlayer: React.FC = () => {
             })}
           </div>
 
-          <div className="mt-3 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-            <span>© All rights belong to Kensuke Ushio & King Gizzard</span>
-            <span className="text-amber-400">FAIR USE // PORTFOLIO SHOWCASE</span>
+          <div className="mt-2.5 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono text-zinc-500">
+            <span className="truncate">© Kensuke Ushio & King Gizzard</span>
+            <span className="text-amber-400 shrink-0">FAIR USE</span>
           </div>
         </div>
       )}
 
       {/* Main Bottom Floating Bar */}
-      <div className="zine-panel corner-crosshairs rounded-2xl px-4 py-2.5 sm:px-5 sm:py-3 border border-amber-500/35 shadow-2xl flex flex-col gap-1.5 backdrop-blur-2xl">
+      <div className="zine-panel corner-crosshairs rounded-2xl px-3 py-2 sm:px-5 sm:py-3 border border-amber-500/35 shadow-2xl flex flex-col gap-1 sm:gap-1.5 backdrop-blur-2xl">
         {/* Top Mini Scrubber */}
         <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400">
-          <span className="w-8 text-right text-amber-300/90">{formatTime(currentTime)}</span>
+          <span className="w-7 sm:w-8 text-right text-amber-300/90 text-[10px]">{formatTime(currentTime)}</span>
           <div className="relative flex-1 flex items-center">
             <input
               type="range"
@@ -240,29 +290,29 @@ export const SoundtrackPlayer: React.FC = () => {
               className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
             />
           </div>
-          <span className="w-8 text-zinc-500">{formatTime(duration)}</span>
+          <span className="w-7 sm:w-8 text-zinc-500 text-[10px]">{formatTime(duration)}</span>
         </div>
 
         {/* Controls Row */}
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center justify-between gap-2 sm:gap-3">
           {/* Left: Track Info & Animated Equalizer bars */}
-          <div className="flex items-center gap-2.5 min-w-0">
-            {/* Vinyl disc / pulse icon */}
-            <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-amber-500/30 flex items-center justify-center shrink-0">
-              <Disc3 className={`w-4 h-4 text-amber-400 ${isPlaying ? 'animate-spin duration-3000' : 'opacity-70'}`} />
+          <div className="flex items-center gap-2 min-w-0 max-w-[42%] sm:max-w-[45%]">
+            {/* Vinyl disc */}
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-zinc-900 border border-amber-500/30 flex items-center justify-center shrink-0">
+              <Disc3 className={`w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 ${isPlaying ? 'animate-spin duration-3000' : 'opacity-70'}`} />
             </div>
 
             {/* Title and artist */}
             <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-white font-['Syne'] truncate">
+              <div className="flex items-center gap-1.5">
+                <span className="text-[11px] sm:text-xs font-bold text-white font-['Syne'] truncate">
                   {currentTrack.title}
                 </span>
-                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-400/10 text-amber-300 border border-amber-400/20 shrink-0 hidden sm:inline">
+                <span className="text-[9px] font-mono px-1 rounded bg-amber-400/10 text-amber-300 border border-amber-400/20 shrink-0 hidden md:inline">
                   {currentTrack.platform}
                 </span>
               </div>
-              <div className="text-[10px] font-mono text-zinc-400 truncate">
+              <div className="text-[9px] sm:text-[10px] font-mono text-zinc-400 truncate">
                 {currentTrack.artist}
               </div>
             </div>
@@ -273,35 +323,35 @@ export const SoundtrackPlayer: React.FC = () => {
             <button
               onClick={handlePrev}
               onMouseEnter={() => sound.playHover()}
-              className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/80 transition-all cursor-pointer"
+              className="p-1 sm:p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/80 transition-all cursor-pointer"
               title="Pista anterior"
             >
-              <SkipBack className="w-4 h-4" />
+              <SkipBack className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
 
             <button
               onClick={togglePlay}
               onMouseEnter={() => sound.playHover()}
-              className="p-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black shadow-lg shadow-amber-500/20 active:scale-95 transition-all cursor-pointer font-bold"
+              className="p-2 sm:p-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black shadow-lg shadow-amber-500/20 active:scale-95 transition-all cursor-pointer font-bold"
               title={isPlaying ? 'Pausar' : 'Reproducir'}
             >
-              {isPlaying ? <Pause className="w-4 h-4 fill-black" /> : <Play className="w-4 h-4 fill-black ml-0.5" />}
+              {isPlaying ? <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-black" /> : <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-black ml-0.5" />}
             </button>
 
             <button
               onClick={handleNext}
               onMouseEnter={() => sound.playHover()}
-              className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/80 transition-all cursor-pointer"
+              className="p-1 sm:p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/80 transition-all cursor-pointer"
               title="Pista siguiente"
             >
-              <SkipForward className="w-4 h-4" />
+              <SkipForward className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
           </div>
 
-          {/* Right: Volume & Playlist Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Volume Control */}
-            <div className="hidden sm:flex items-center gap-1.5">
+          {/* Right: Volume, Playlist Toggle, and Minimize Toggle */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            {/* Volume Control (desktop only) */}
+            <div className="hidden lg:flex items-center gap-1.5">
               <button
                 onClick={toggleMute}
                 onMouseEnter={() => sound.playHover()}
@@ -321,7 +371,7 @@ export const SoundtrackPlayer: React.FC = () => {
                 step={0.05}
                 value={isMuted ? 0 : volume}
                 onChange={handleVolumeChange}
-                className="w-16 h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-14 h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
               />
             </div>
 
@@ -342,6 +392,21 @@ export const SoundtrackPlayer: React.FC = () => {
               <ListMusic className="w-3.5 h-3.5 text-amber-400" />
               <span className="hidden md:inline text-[11px]">TRACKS</span>
               {showPlaylist ? <ChevronDown className="w-3 h-3" /> : <ChevronUp className="w-3 h-3" />}
+            </button>
+
+            {/* Minimize to Pill Button */}
+            <button
+              onClick={() => {
+                sound.playClick();
+                setShowPlaylist(false);
+                setIsMinimized(true);
+              }}
+              onMouseEnter={() => sound.playHover()}
+              className="p-1.5 rounded-lg bg-zinc-900/90 border border-zinc-800 text-zinc-400 hover:text-amber-400 hover:border-amber-500/30 transition-all cursor-pointer"
+              title="Minimizar reproductor a píldora"
+              aria-label="Minimizar reproductor"
+            >
+              <ChevronDown className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

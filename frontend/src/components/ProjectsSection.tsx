@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Project } from '../types';
 import { sound } from '../audio/SoundFX';
 import { Star, GitFork, Volume2, Sparkles, Radio, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -11,17 +11,55 @@ interface ProjectsSectionProps {
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [itemsPerView, setItemsPerView] = useState<number>(1);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
-  // Maximum starting index so that we don't scroll past the end
-  // On desktop we show up to 2-3 cards, on mobile 1 card
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(1);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const maxIndex = Math.max(0, projects.length - itemsPerView);
+
   const handlePrev = () => {
     sound.playClick();
-    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
   };
 
   const handleNext = () => {
     sound.playClick();
-    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX === null || touchEndX === null) return;
+    const distance = touchStartX - touchEndX;
+    if (distance > 45) {
+      handleNext();
+    } else if (distance < -45) {
+      handlePrev();
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
   };
 
   const handlePlaySoundMood = (e: React.MouseEvent, p: Project) => {
@@ -55,19 +93,29 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
     }
   };
 
+  const getTransformStyle = () => {
+    if (itemsPerView === 3) {
+      return `translateX(calc(-${currentIndex} * (33.333% + 0.5rem)))`;
+    }
+    if (itemsPerView === 2) {
+      return `translateX(calc(-${currentIndex} * (50% + 0.75rem)))`;
+    }
+    return `translateX(calc(-${currentIndex} * (100% + 1.5rem)))`;
+  };
+
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 max-w-7xl mx-auto relative">
+    <section id="projects" className="py-16 sm:py-24 px-3.5 sm:px-6 max-w-7xl mx-auto relative overflow-hidden">
       {/* Editorial Section Header */}
-      <div className="section-editorial-bar flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div className="section-editorial-bar flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6">
         <div>
           <div className="flex items-center gap-2 text-xs font-mono text-amber-400 mb-2">
             <Radio className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-            <span>REGISTRO DE SISTEMAS // GITHUB LIVE PIPELINE [CARRUSEL DE ARQUITECTURA]</span>
+            <span>REGISTRO DE SISTEMAS // GITHUB LIVE PIPELINE [CARRUSEL]</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black font-['Syne'] text-white">
             SISTEMAS & <span className="desert-gold-gradient">ARQUITECTURA</span>
           </h2>
-          <p className="text-zinc-300 text-sm mt-2 max-w-xl leading-relaxed">
+          <p className="text-zinc-300 text-xs sm:text-sm mt-2 max-w-xl leading-relaxed">
             Sistemas de software seleccionados e integrados en vivo con GitHub API mediante backend Spring Boot 3 con Caffeine Cache.
             Abarcando motores de contabilidad inmutable en Go (Ledgerly), plataformas geoespaciales con Sentinel-2 (Vigilante), microservicios y grafos.
           </p>
@@ -83,7 +131,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
             <button
               onClick={handlePrev}
               onMouseEnter={() => sound.playHover()}
-              className="p-2.5 rounded-xl zine-panel hover:border-amber-400 text-zinc-300 hover:text-white transition-all cursor-pointer shadow-lg"
+              className="p-2 sm:p-2.5 rounded-xl zine-panel hover:border-amber-400 text-zinc-300 hover:text-white transition-all cursor-pointer shadow-lg active:scale-95"
               title="Proyecto anterior"
               aria-label="Proyecto anterior"
             >
@@ -93,7 +141,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
             <button
               onClick={handleNext}
               onMouseEnter={() => sound.playHover()}
-              className="p-2.5 rounded-xl zine-panel hover:border-amber-400 text-zinc-300 hover:text-white transition-all cursor-pointer shadow-lg"
+              className="p-2 sm:p-2.5 rounded-xl zine-panel hover:border-amber-400 text-zinc-300 hover:text-white transition-all cursor-pointer shadow-lg active:scale-95"
               title="Proyecto siguiente"
               aria-label="Proyecto siguiente"
             >
@@ -103,14 +151,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
         </div>
       </div>
 
-      {/* Projects Carousel Container */}
-      <div className="relative overflow-hidden">
+      {/* Projects Carousel Container with touch gestures */}
+      <div
+        className="relative overflow-hidden touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Slider Track */}
         <div
           className="flex transition-transform duration-500 ease-out gap-6"
-          style={{
-            transform: `translateX(-${currentIndex * (100 / (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1))}%)`
-          }}
+          style={{ transform: getTransformStyle() }}
         >
           {projects.map((project, index) => {
             return (
@@ -124,7 +175,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                     setSelectedProject(project);
                   }}
                   onMouseEnter={() => sound.playHover()}
-                  className="group relative h-full zine-panel corner-crosshairs rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:scale-[1.01] hover:border-amber-500/60 hover:shadow-2xl hover:shadow-amber-500/10 transition-all cursor-pointer overflow-hidden"
+                  className="group relative h-full zine-panel corner-crosshairs rounded-2xl p-5 sm:p-7 flex flex-col justify-between hover:scale-[1.01] hover:border-amber-500/60 hover:shadow-2xl hover:shadow-amber-500/10 transition-all cursor-pointer overflow-hidden"
                 >
                   {/* Top Accent Gradient Bar */}
                   <div

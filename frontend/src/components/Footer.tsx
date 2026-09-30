@@ -9,10 +9,10 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-amber-500/20 pt-12 pb-24 sm:pb-28 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 text-zinc-400 text-xs font-mono">
+    <footer className="border-t border-amber-500/20 pt-12 pb-32 sm:pb-28 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 text-zinc-400 text-xs font-mono">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-amber-500/30 flex items-center justify-center text-amber-400">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3">
+          <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
             <Disc3 className="w-4 h-4 animate-spin duration-3000" />
           </div>
           <div>

@@ -15,6 +15,11 @@
   --color-cream: #fef08a;
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -22,6 +27,8 @@ body {
   color: #f1f5f9;
   font-family: var(--font-body);
   overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {

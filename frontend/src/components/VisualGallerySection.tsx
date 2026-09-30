@@ -48,13 +48,13 @@ export const VisualGallerySection: React.FC = () => {
           className="group relative rounded-3xl overflow-hidden zine-panel corner-crosshairs border border-amber-500/25 hover:border-amber-500/60 shadow-2xl transition-all cursor-pointer flex flex-col"
         >
           {/* Drafting border header */}
-          <div className="px-6 py-3.5 border-b border-zinc-800 bg-zinc-950/80 flex items-center justify-between text-xs font-mono text-zinc-400">
+          <div className="px-4 sm:px-6 py-3 border-b border-zinc-800 bg-zinc-950/80 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-zinc-400">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-400" />
+              <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
               <span className="text-zinc-100 font-bold">PLATE 01</span>
-              <span className="text-zinc-400">// PING PONG THE ANIMATION</span>
+              <span className="text-zinc-400">// PPTA</span>
             </div>
-            <span className="tech-stamp-monarch">[FIG. A: MONARCH WINGS]</span>
+            <span className="tech-stamp-monarch text-[10px] sm:text-xs">[FIG. A: MONARCH WINGS]</span>
           </div>
 
           <div className="relative aspect-[16/10] overflow-hidden bg-black">
@@ -69,9 +69,9 @@ export const VisualGallerySection: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-5 bg-zinc-950/95 flex items-center justify-between text-xs font-mono text-zinc-400 border-t border-zinc-800/80">
-            <span className="text-zinc-200 font-medium">COLORWAY: #EA580C MONARCH TANGERINE • #D99B43 GOLD</span>
-            <span className="text-amber-400 font-semibold group-hover:underline">EXPANDIR IMAGEN</span>
+          <div className="p-4 sm:p-5 bg-zinc-950/95 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-zinc-400 border-t border-zinc-800/80">
+            <span className="text-zinc-200 font-medium text-[10px] sm:text-xs">COLORWAY: #EA580C MONARCH TANGERINE • #D99B43 GOLD</span>
+            <span className="text-amber-400 font-semibold group-hover:underline text-[10px] sm:text-xs">EXPANDIR IMAGEN</span>
           </div>
         </div>
 
@@ -86,13 +86,13 @@ export const VisualGallerySection: React.FC = () => {
           className="group relative rounded-3xl overflow-hidden zine-panel-sky corner-crosshairs border border-sky-500/25 hover:border-sky-500/60 shadow-2xl transition-all cursor-pointer flex flex-col"
         >
           {/* Drafting border header */}
-          <div className="px-6 py-3.5 border-b border-zinc-800 bg-zinc-950/80 flex items-center justify-between text-xs font-mono text-zinc-400">
+          <div className="px-4 sm:px-6 py-3 border-b border-zinc-800 bg-zinc-950/80 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-zinc-400">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-sky-400" />
+              <span className="w-2 h-2 rounded-full bg-sky-400 shrink-0" />
               <span className="text-zinc-100 font-bold">PLATE 02</span>
-              <span className="text-zinc-400">// PING PONG THE ANIMATION</span>
+              <span className="text-zinc-400">// PPTA</span>
             </div>
-            <span className="tech-stamp-sky">[FIG. B: THE HERO SILHOUETTE]</span>
+            <span className="tech-stamp-sky text-[10px] sm:text-xs">[FIG. B: THE HERO SILHOUETTE]</span>
           </div>
 
           <div className="relative aspect-[16/10] overflow-hidden bg-black">
@@ -107,9 +107,9 @@ export const VisualGallerySection: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-5 bg-zinc-950/95 flex items-center justify-between text-xs font-mono text-zinc-400 border-t border-zinc-800/80">
-            <span className="text-zinc-200 font-medium">COLORWAY: #FEF08A CREAM LIGHT • #0C0D12 SUMI INK</span>
-            <span className="text-sky-400 font-semibold group-hover:underline">EXPANDIR IMAGEN</span>
+          <div className="p-4 sm:p-5 bg-zinc-950/95 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-zinc-400 border-t border-zinc-800/80">
+            <span className="text-zinc-200 font-medium text-[10px] sm:text-xs">COLORWAY: #FEF08A CREAM LIGHT • #0C0D12 SUMI INK</span>
+            <span className="text-sky-400 font-semibold group-hover:underline text-[10px] sm:text-xs">EXPANDIR IMAGEN</span>
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@ export const VisualGallerySection: React.FC = () => {
       {selectedImage && (
         <div
           onClick={() => setSelectedImage(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/90 backdrop-blur-md animate-in fade-in cursor-zoom-out"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-8 bg-black/90 backdrop-blur-md animate-in fade-in cursor-zoom-out"
         >
           <div className="relative max-w-5xl max-h-[90vh] rounded-2xl overflow-hidden border border-amber-500/40 shadow-2xl">
             <img
@@ -128,7 +128,7 @@ export const VisualGallerySection: React.FC = () => {
             />
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-black/80 text-white font-mono text-xs border border-white/20 cursor-pointer"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 px-3 py-2 min-h-[40px] rounded-lg bg-black/85 hover:bg-black text-white font-mono text-xs border border-white/20 cursor-pointer shadow-lg"
             >
               CERRAR [ESC]
             </button>

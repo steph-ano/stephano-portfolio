@@ -13,8 +13,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto zine-panel bg-[#11141e] rounded-2xl border border-amber-500/40 shadow-2xl p-6 sm:p-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto zine-panel bg-[#11141e] rounded-2xl border border-amber-500/40 shadow-2xl p-4 sm:p-7 md:p-8">
         {/* Close Button */}
         <button
           onClick={() => {
@@ -22,20 +22,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             onClose();
           }}
           onMouseEnter={() => sound.playHover()}
-          className="absolute top-5 right-5 p-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2.5 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl bg-zinc-800/90 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors cursor-pointer z-10"
           aria-label="Cerrar modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2.5 rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-400">
-            <Disc3 className="w-6 h-6 animate-spin duration-3000" />
+        <div className="flex items-start gap-3 mb-4 pr-10">
+          <div className="p-2 sm:p-2.5 rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-400 shrink-0 mt-0.5">
+            <Disc3 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin duration-3000" />
           </div>
-          <div>
-            <span className="tech-stamp-sky">{project.bpm || 'CLOCK: 120 BPM'} • {project.soundMood || 'VANGUARD'}</span>
-            <h2 className="text-2xl sm:text-3xl font-bold font-['Syne'] text-white mt-1">
+          <div className="min-w-0">
+            <span className="tech-stamp-sky text-[10px] sm:text-xs">{project.bpm || 'CLOCK: 120 BPM'} • {project.soundMood || 'VANGUARD'}</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-['Syne'] text-white mt-1 break-words">
               {project.displayName || project.name}
             </h2>
           </div>
@@ -113,20 +113,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Modal Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-800">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-4 border-t border-zinc-800">
           <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>GITHUB: {project.githubOwner}/{project.githubRepo}</span>
+            <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span className="truncate">GITHUB: {project.githubOwner}/{project.githubRepo}</span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
               onClick={() => sound.playClick()}
               onMouseEnter={() => sound.playHover()}
-              className="px-4 py-2 rounded-xl text-xs font-mono bg-zinc-800 hover:bg-zinc-700 text-white flex items-center gap-2 border border-zinc-700 transition-colors"
+              className="px-4 py-2.5 min-h-[44px] rounded-xl text-xs font-mono bg-zinc-800 hover:bg-zinc-700 text-white flex items-center justify-center gap-2 border border-zinc-700 transition-colors"
             >
               <GithubIcon className="w-4 h-4" />
               <span>Ver Repositorio</span>
@@ -139,7 +139,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 rel="noreferrer"
                 onClick={() => sound.playClick()}
                 onMouseEnter={() => sound.playHover()}
-                className="px-4 py-2 rounded-xl text-xs font-mono bg-amber-400 hover:bg-amber-300 text-black font-bold flex items-center gap-2 transition-colors"
+                className="px-4 py-2.5 min-h-[44px] rounded-xl text-xs font-mono bg-amber-400 hover:bg-amber-300 text-black font-bold flex items-center justify-center gap-2 transition-colors"
               >
                 <ExternalLink className="w-4 h-4 text-black" />
                 <span>Demo en Vivo</span>

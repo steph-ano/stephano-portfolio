@@ -27,30 +27,30 @@ export const TimelineSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         {/* Education Card */}
         <div
           onMouseEnter={() => sound.playHover()}
-          className="group zine-panel corner-crosshairs rounded-3xl p-8 border border-amber-500/25 hover:border-amber-500/60 hover:shadow-2xl hover:shadow-amber-500/10 transition-all flex flex-col justify-between"
+          className="group zine-panel corner-crosshairs rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-amber-500/25 hover:border-amber-500/60 hover:shadow-2xl hover:shadow-amber-500/10 transition-all flex flex-col justify-between"
         >
           <div>
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center justify-between mb-4 sm:mb-5">
               <span className="tech-stamp-sky">
                 EXPEDIENTE 01 // PREGRADO
               </span>
-              <span className="px-3 py-1 rounded-full text-xs font-mono bg-amber-400/10 text-amber-300 border border-amber-400/30 font-semibold">
+              <span className="px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-mono bg-amber-400/10 text-amber-300 border border-amber-400/30 font-semibold">
                 OCTAVO CICLO // 8VO
               </span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold font-['Syne'] text-white mb-2 group-hover:text-amber-200 transition-colors">
+            <h3 className="text-xl sm:text-3xl font-bold font-['Syne'] text-white mb-2 group-hover:text-amber-200 transition-colors">
               Ingeniería de Software
             </h3>
-            <h4 className="text-base text-zinc-300 font-medium mb-5">
+            <h4 className="text-sm sm:text-base text-zinc-300 font-medium mb-4 sm:mb-5">
               Universidad Peruana de Ciencias Aplicadas (UPC)
             </h4>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-400 mb-6 pb-6 border-b border-zinc-800">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[11px] sm:text-xs font-mono text-zinc-400 mb-5 sm:mb-6 pb-5 sm:pb-6 border-b border-zinc-800">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-amber-400" />
                 <span className="text-zinc-300">Marzo 2023 – Actualidad</span>
@@ -61,7 +61,7 @@ export const TimelineSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="space-y-3.5 text-sm text-zinc-300">
+            <div className="space-y-3 sm:space-y-3.5 text-xs sm:text-sm text-zinc-300">
               <div className="flex items-start gap-2.5">
                 <CheckCircle className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
                 <span>Arquitectura de software moderna: C4 Model, microservicios, Event Sourcing y patrones distribuidos.</span>
@@ -77,7 +77,7 @@ export const TimelineSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-8 pt-4 border-t border-zinc-800 flex items-center justify-between text-xs font-mono text-zinc-400">
+          <div className="mt-6 sm:mt-8 pt-4 border-t border-zinc-800 flex items-center justify-between text-[11px] sm:text-xs font-mono text-zinc-400">
             <span className="text-zinc-500">FACULTAD DE INGENIERÍA</span>
             <span className="text-amber-400 font-semibold">PERFIL TÉCNICO VALIDADO</span>
           </div>
@@ -86,7 +86,7 @@ export const TimelineSection: React.FC = () => {
         {/* Certifications Card */}
         <div
           onMouseEnter={() => sound.playHover()}
-          className="group zine-panel corner-crosshairs rounded-3xl p-8 border border-amber-500/25 hover:border-amber-500/60 hover:shadow-2xl hover:shadow-amber-500/10 transition-all flex flex-col justify-between"
+          className="group zine-panel corner-crosshairs rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-amber-500/25 hover:border-amber-500/60 hover:shadow-2xl hover:shadow-amber-500/10 transition-all flex flex-col justify-between"
         >
           <div>
             <div className="flex items-center justify-between mb-5">
