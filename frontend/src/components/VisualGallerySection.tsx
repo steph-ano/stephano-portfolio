@@ -10,11 +10,11 @@ export const VisualGallerySection: React.FC = () => {
       {/* Editorial Section Header */}
       <div className="section-editorial-bar flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono text-amber-400 mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono text-amber-400 mb-2 flex-wrap">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>ESTÉTICA // ARTEFACTOS & PALETA CROMÁTICA</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-['Syne'] text-white break-words">
+          <h2 className="text-[clamp(1.5rem,6.2vw,3rem)] font-black font-['Syne'] text-white leading-tight break-words tracking-tight">
             ATMÓSFERA & <span className="desert-gold-gradient">PALETA VISUAL</span>
           </h2>
           <p className="text-zinc-300 text-sm mt-2 max-w-xl leading-relaxed">

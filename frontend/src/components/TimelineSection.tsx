@@ -8,11 +8,11 @@ export const TimelineSection: React.FC = () => {
       {/* Editorial Section Header */}
       <div className="section-editorial-bar flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono text-amber-400 mb-2">
-            <GraduationCap className="w-3.5 h-3.5 text-amber-400" />
+          <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono text-amber-400 mb-2 flex-wrap">
+            <GraduationCap className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>FORMACIÓN ACADÉMICA // EXPEDIENTE TÉCNICO & CERTIFICACIONES</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black font-['Syne'] text-white">
+          <h2 className="text-[clamp(1.5rem,6.2vw,3rem)] font-black font-['Syne'] text-white leading-tight break-words tracking-tight">
             TRAYECTORIA & <span className="desert-gold-gradient">ESTUDIOS</span>
           </h2>
           <p className="text-zinc-300 text-sm mt-2 max-w-xl leading-relaxed">
@@ -96,7 +96,7 @@ export const TimelineSection: React.FC = () => {
               <Award className="w-5 h-5 text-amber-400" />
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold font-['Syne'] text-white mb-2 group-hover:text-amber-200 transition-colors">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-['Syne'] text-white mb-2 group-hover:text-amber-200 transition-colors break-words">
               Certificaciones Profesionales
             </h3>
             <p className="text-sm text-zinc-300 mb-6 pb-6 border-b border-zinc-800 leading-relaxed">
