@@ -215,7 +215,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0e111a] text-zinc-100 relative selection:bg-amber-500 selection:text-black">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#0e111a] text-zinc-100 relative selection:bg-amber-500 selection:text-black">
       {/* Persistent Atmospheric Desert Mountain Backdrop from JPEGMAFIA ILDMLFY */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <img
@@ -238,7 +238,7 @@ export const App: React.FC = () => {
       <Navbar />
 
       {/* Main Content */}
-      <main className="relative z-10">
+      <main className="relative z-10 w-full max-w-full overflow-x-hidden">
         <Hero onExploreProjects={handleExploreProjects} />
         <VisualGallerySection />
         <ProjectsSection projects={projects} />

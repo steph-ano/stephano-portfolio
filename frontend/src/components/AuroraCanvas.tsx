@@ -129,7 +129,7 @@ export const AuroraCanvas: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-85"
+      className="fixed inset-0 w-full h-full max-w-full max-h-full pointer-events-none z-0 opacity-85"
       style={{ mixBlendMode: 'screen' }}
     />
   );

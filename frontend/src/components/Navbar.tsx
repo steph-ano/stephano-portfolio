@@ -111,14 +111,14 @@ export const Navbar: React.FC = () => {
             )}
           </button>
 
-          {/* Social Links */}
+          {/* Social Links - visible on tablet & desktop */}
           <a
             href="https://github.com/steph-ano"
             target="_blank"
             rel="noreferrer"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="p-1.5 sm:p-2 rounded-lg bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
+            className="hidden sm:flex items-center justify-center p-1.5 sm:p-2 rounded-lg bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
             title="GitHub de Stephano Valdivia"
           >
             <GithubIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -130,7 +130,7 @@ export const Navbar: React.FC = () => {
             rel="noreferrer"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="p-1.5 sm:p-2 rounded-lg bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
+            className="hidden sm:flex items-center justify-center p-1.5 sm:p-2 rounded-lg bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
             title="LinkedIn de Stephano Valdivia"
           >
             <LinkedinIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -168,7 +168,37 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          <div className="mt-4 pt-3 border-t border-zinc-800 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+          {/* Social Quick Links inside Mobile Drawer */}
+          <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-zinc-800">
+            <a
+              href="https://github.com/steph-ano"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => {
+                sound.playClick();
+                setMobileMenuOpen(false);
+              }}
+              className="py-2.5 px-3 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-300 hover:text-white flex items-center justify-center gap-2 font-mono text-xs"
+            >
+              <GithubIcon className="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/stephanovaldivia"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => {
+                sound.playClick();
+                setMobileMenuOpen(false);
+              }}
+              className="py-2.5 px-3 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-300 hover:text-white flex items-center justify-center gap-2 font-mono text-xs"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+              <span>LinkedIn</span>
+            </a>
+          </div>
+
+          <div className="mt-3 pt-3 border-t border-zinc-800 flex items-center justify-between text-[11px] font-mono text-zinc-400">
             <span className="text-amber-400">// STEPHANO VALDIVIA</span>
             <span>LIMA, PERÚ</span>
           </div>

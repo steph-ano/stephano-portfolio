@@ -6,7 +6,7 @@ export const VisualGallerySection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="visual-gallery" className="py-24 px-4 sm:px-6 max-w-7xl mx-auto relative">
+    <section id="visual-gallery" className="py-16 sm:py-24 px-3.5 sm:px-6 max-w-7xl mx-auto relative overflow-hidden">
       {/* Editorial Section Header */}
       <div className="section-editorial-bar flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
@@ -14,7 +14,7 @@ export const VisualGallerySection: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>ESTÉTICA // ARTEFACTOS & PALETA CROMÁTICA</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black font-['Syne'] text-white">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-['Syne'] text-white break-words">
             ATMÓSFERA & <span className="desert-gold-gradient">PALETA VISUAL</span>
           </h2>
           <p className="text-zinc-300 text-sm mt-2 max-w-xl leading-relaxed">
@@ -24,7 +24,7 @@ export const VisualGallerySection: React.FC = () => {
         </div>
 
         {/* Color Palette Swatches based on the user's images */}
-        <div className="flex items-center gap-2.5 p-2.5 zine-panel rounded-2xl border border-amber-500/25 self-start md:self-end">
+        <div className="flex items-center gap-2 p-2 zine-panel rounded-2xl border border-amber-500/25 self-start md:self-end flex-wrap">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-lg bg-[#5ba4e5] border border-white/20 shadow-sm" title="Desert Sky Blue #5ba4e5" />
             <div className="w-6 h-6 rounded-lg bg-[#d99b43] border border-white/20 shadow-sm" title="Sunlit Mountain Gold #d99b43" />

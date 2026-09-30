@@ -23,14 +23,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects }) => {
       </div>
 
       {/* Top Editorial Rule & Framing Header */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-3 sm:pt-4 pb-3 sm:pb-4 border-b border-white/20 flex flex-wrap items-center justify-between text-[11px] sm:text-xs font-mono text-zinc-200 gap-2 sm:gap-4 backdrop-blur-[2px]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-3 sm:pt-4 pb-3 sm:pb-4 border-b border-white/20 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs font-mono text-zinc-200 gap-2 sm:gap-4 backdrop-blur-[2px] text-center sm:text-left">
         <div className="flex items-center gap-2 sm:gap-3">
-          <span className="font-bold tracking-widest text-white uppercase text-xs sm:text-sm">SOFTWARE ENGINEER</span>
+          <span className="font-bold tracking-wider sm:tracking-widest text-white uppercase text-xs sm:text-sm">SOFTWARE ENGINEER</span>
           <span className="text-amber-400 font-bold">•</span>
           <span className="text-zinc-300 text-[11px] sm:text-xs">UPC MONTERRICO</span>
         </div>
 
-        <div className="text-center font-bold tracking-widest text-white/90 text-[11px] sm:text-xs">
+        <div className="text-center font-bold tracking-wider sm:tracking-widest text-white/90 text-[11px] sm:text-xs">
           2024–2026 <span className="text-amber-400/90 font-normal">// SELECTED WORKS</span>
         </div>
 
@@ -51,11 +51,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects }) => {
         </div>
 
         {/* Giant Brush Title with 3D Ghost Outline Layers using fluid clamp */}
-        <div className="relative mb-4 sm:mb-6 select-none w-full max-w-full overflow-hidden sm:overflow-visible">
+        <div className="relative mb-4 sm:mb-6 select-none w-full max-w-full overflow-hidden px-2">
           {/* Ghost outline 1 */}
           <div
             aria-hidden="true"
-            className="text-[clamp(3.1rem,13vw,10.5rem)] font-black tracking-tight text-transparent font-['Syne'] uppercase opacity-25 absolute -top-3 sm:-top-7 left-1/2 -translate-x-1/2 pointer-events-none whitespace-nowrap"
+            className="text-[clamp(2.3rem,10.5vw,9.5rem)] font-black tracking-tight text-transparent font-['Syne'] uppercase opacity-25 absolute -top-3 sm:-top-7 left-1/2 -translate-x-1/2 pointer-events-none whitespace-nowrap"
             style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.45)' }}
           >
             PORTFOLIO
@@ -64,19 +64,19 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects }) => {
           {/* Ghost outline 2 */}
           <div
             aria-hidden="true"
-            className="text-[clamp(3.1rem,13vw,10.5rem)] font-black tracking-tight text-transparent font-['Syne'] uppercase opacity-15 absolute -top-6 sm:-top-12 left-1/2 -translate-x-1/2 pointer-events-none whitespace-nowrap"
+            className="text-[clamp(2.3rem,10.5vw,9.5rem)] font-black tracking-tight text-transparent font-['Syne'] uppercase opacity-15 absolute -top-6 sm:-top-12 left-1/2 -translate-x-1/2 pointer-events-none whitespace-nowrap"
             style={{ WebkitTextStroke: '1.5px rgba(245, 158, 11, 0.6)' }}
           >
             PORTFOLIO
           </div>
 
           {/* Foreground Title with Permanent Marker dry-brush typography */}
-          <h1 className="relative text-[clamp(3.1rem,13vw,10.5rem)] font-brush tracking-wide text-white drop-shadow-[0_15px_45px_rgba(0,0,0,0.9)] leading-none uppercase">
+          <h1 className="relative text-[clamp(2.3rem,10.5vw,9.5rem)] font-brush tracking-wide text-white drop-shadow-[0_15px_45px_rgba(0,0,0,0.9)] leading-none uppercase">
             PORTFOLIO
           </h1>
 
           {/* Dry Brush Underline Bar in Monarch Amber & Desert Gold */}
-          <div className="w-40 sm:w-96 md:w-[32rem] mx-auto mt-2 sm:mt-3 h-2.5 sm:h-4 bg-gradient-to-r from-amber-400 via-orange-500 to-sky-400 dry-brush-line opacity-95 shadow-2xl" />
+          <div className="w-32 xs:w-44 sm:w-96 md:w-[32rem] mx-auto mt-2 sm:mt-3 h-2.5 sm:h-4 bg-gradient-to-r from-amber-400 via-orange-500 to-sky-400 dry-brush-line opacity-95 shadow-2xl" />
         </div>
 
         {/* Action Controls - Stacked full-width on mobile, flex-row on desktop */}

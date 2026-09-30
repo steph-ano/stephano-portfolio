@@ -15,20 +15,26 @@
   --color-cream: #fef08a;
 }
 
-html {
-  overflow-x: hidden;
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
   max-width: 100vw;
+  overflow-x: hidden !important;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  margin: 0;
-  padding: 0;
   background-color: var(--bg-desert-dark);
   color: #f1f5f9;
   font-family: var(--font-body);
-  overflow-x: hidden;
-  max-width: 100vw;
-  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
